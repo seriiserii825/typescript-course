@@ -1,23 +1,22 @@
 export default {};
 
-type TAdmin = {
+type TUser = {
+  id: number;
+  login: string;
+};
+
+type TAdmin = TUser & {
   type: "admin";
-  id: number;
-  login: string;
   access_level: number;
 };
 
-type TManager = {
+type TManager = TUser & {
   type: "manager";
-  id: number;
-  login: string;
   access_level: number;
 };
 
-type TClient = {
+type TClient = TUser & {
   type: "client";
-  id: number;
-  login: string;
 };
 
 function loadUser(): TAdmin | TManager | TClient {
@@ -31,6 +30,6 @@ function loadUser(): TAdmin | TManager | TClient {
 
 const user = loadUser();
 
-if (user.type === 'admin') {
-
+if (user.type === "admin") {
+    // console.log(some"some");
 }
